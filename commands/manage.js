@@ -7,8 +7,6 @@ module.exports = {
         .setDescription("Manage the Watcher"),
     name: "manage",
     callback: async (client, interaction) => {
-        // { name, value, inline }
-        // user -> { tag, id, timestamp }
         var fields = [], changes = false;
         var mapped = client.db.get("watched").map(user=>user.tag).join(", ");
         var parms = [["`Enabled`", client.db.get("isEnabled") === true ? "<:Toggle_on:957308926322430032>" : "<:Toggle_OFF:957309046866726952>"], ["`Users`", mapped !== "" ? "```" + mapped + "```" : "`None`"]];
